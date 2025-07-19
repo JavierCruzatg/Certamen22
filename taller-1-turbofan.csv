@@ -1,0 +1,214 @@
+##Taller,$2 Análisis
+from,$2 import
+drive.mount('/content/drive'),$2 
+Mounted,$2 /content/drive
+import,$2 
+import,$2 
+import,$2 
+import,$2 
+import,$2 
+,$2 
+pandas,$2 pd
+numpy,$2 np
+sklearn,$2 
+seaborn,$2 sns
+matplotlib.pyplot,$2 plt
+,$2 
+fd_001,$2 
+pd.read_csv("/content/drive/MyDrive/CMAPSS/CMAPSS/train_FD001.txt",sep,$2 
+=",$2 
+fd_002,$2 
+pd.read_csv("/content/drive/MyDrive/CMAPSS/CMAPSS/train_FD002.txt",sep,$2 
+=",$2 
+fd_003,$2 
+pd.read_csv("/content/drive/MyDrive/CMAPSS/CMAPSS/train_FD003.txt",sep,$2 
+=",$2 
+fd_004,$2 
+pd.read_csv("/content/drive/MyDrive/CMAPSS/CMAPSS/train_FD004.txt",sep,$2 
+=",$2 
+from,$2 import
+drive.mount('/content/drive'),$2 
+Drive,$2 mounted
+remount,,$2 drive.mount("/content/drive",
+Experimento,$2 
+El,$2 explica
+aviones.,$2 un
+de,$2 sensores
+disminución,$2 el
+La,$2 continúa
+generados,$2 esta
+programas,$2 computadora
+Experimento,$2 
+El,$2 de
+Considera,$2 los
+formación,$2 grietas
+,$2 
+El,$2 de
+Ciclos,$2 la
+Frecuencia,$2 ciclado:
+Rango,$2 temperatura:
+Estas,$2 estiman
+##Experimento,$2 La
+motores,$2 que
+FD001,,$2 múltiples
+componentes,$2 motor
+El,$2 se
+medición,$2 ensamblaje)
+ID,$2 motor,
+Este,$2 es
+para,$2 modelos
+interferencia,$2 cambios
+El,$2 FD004
+simula,$2 daño
+Se,$2 249
+acelerador),$2 crear
+flujo,,$2 factores
+dataset,$2 incluye
+sin,$2 directamente
+Las,$2 
+El,$2 FD004
+ID,$2 motor:
+Número,$2 ciclo:
+Condiciones,$2 (altitud,
+Variables,$2 sensor:
+Analisis,$2 1
+fd_001,$2 
+{"type":"dataframe","variable_name":"fd_001"},$2 
+fd_001.drop(columns=[26,27],inplace=True),$2 
+columns,$2 
+['unit_number','time_in_cycles','setting_1','setting_2','TRA','T2','T2,$2 
+,$2 
+4','T30','T50','P2','P15','P30','Nf',,$2 
+'Nc','epr','Ps30','phi','NRf','NRc','BPR','farB','htBleed','Nf_dmd','P,$2 
+CNfR_dmd','W31','W32'],$2 
+fd_001.columns,$2 columns
+fd_001,$2 
+{"type":"dataframe","variable_name":"fd_001"},$2 
+def,$2 factor
+#,$2 una
+DataFrame,$2 
+df,$2 data.copy()
+#,$2 por
+para,$2 grupo
+#,$2 se
+una,$2 
+fd_RUL,$2 df.groupby('unit_number')
+['time_in_cycles'].max().reset_index(),$2 
+#,$2 el
+fd_RUL.rename(columns,$2 {'time_in_cycles':'max'},
+#,$2 el
+'unit_number',$2 
+#,$2 agrega
+df,$2 df.merge(fd_RUL,
+#,$2 la
+'time_in_cycles',$2 
+df['RUL'],$2 df['max']
+#,$2 la
+df.drop(columns=['max'],inplace,$2 True)
+#,$2 solo
+factor,$2 
+return,$2 >
+df,$2 prepare_train_data(fd_001)
+df,$2 
+{"type":"dataframe","variable_name":"df"},$2 
+#Veamos,$2 campaña
+plt.figure(figsize=(20,6)),$2 
+df.unit_number.value_counts().plot.bar(),$2 
+,$2 
+plt.xlabel('Id,$2 
+plt.ylabel('Cantidad,$2 puntos')
+Text(0,,$2 'Cantidad
+,$2 
+##análisis,$2 del
+salida,$2 la
+indica,$2 mayor
+P30,$2 del
+una,$2 de
+descensos,$2 el
+de,$2 en
+estudiar,$2 deterioro
+Analisis,$2 2
+fd_002,$2 
+pd.read_csv("/content/drive/MyDrive/CMAPSS/CMAPSS/train_FD002.txt",sep,$2 
+=",$2 
+fd_002,$2 
+{"type":"dataframe","variable_name":"fd_002"},$2 
+fd_002.drop(columns=[26,27],inplace=True),$2 
+columns,$2 
+['unit_number','time_in_cycles','setting_1','setting_2','TRA','T2','T2,$2 
+4','T30','T50','P2','P15','P30','Nf',,$2 
+'Nc','epr','Ps30','phi','NRf','NRc','BPR','farB','htBleed','Nf_dmd','P,$2 
+CNfR_dmd','W31','W32'],$2 
+fd_002.columns,$2 columns
+fd_002,$2 
+{"type":"dataframe","variable_name":"fd_002"},$2 
+,$2 
+from,$2 import
+fd_002.plot(kind='scatter',,$2 y='time_in_cycles',
+alpha=.8),$2 
+plt.gca().spines[['top',,$2 
+,$2 
+def,$2 factor
+#,$2 una
+DataFrame,$2 
+df,$2 data.copy()
+#Agrupar,$2 
+##Analisis,$2 grafico
+disperso,$2 comparación
+ejemplo,,$2 aún
+motores,$2 las
+no,$2 tan
+que,$2 a
+degradación,,$2 que
+##Analisis,$2 3
+columns,$2 
+['unit_number','time_in_cycles','setting_1','setting_2','TRA','T2','T2,$2 
+,$2 
+4','T30','T50','P2','P15','P30','Nf',,$2 
+'Nc','epr','Ps30','phi','NRf','NRc','BPR','farB','htBleed','Nf_dmd','P,$2 
+CNfR_dmd','W31','W32'],$2 
+fd_003,$2 
+{"type":"dataframe","variable_name":"fd_003"},$2 
+from,$2 import
+fd_003.plot(kind='scatter',,$2 y=1,
+plt.gca().spines[['top',,$2 
+,$2 
+##Analisis,$2 grafico
+El,$2 muestra
+valores,$2 0
+motores,$2 la
+def,$2 factor
+#,$2 una
+DataFrame,$2 
+,$2 
+df,$2 data.copy()
+#Agrupar,$2 
+,$2 
+##Analisis,$2 4
+fd_004,$2 
+{"type":"dataframe","variable_name":"fd_004"},$2 
+,$2 
+from,$2 import
+fd_004[1].plot(kind='line',,$2 4),
+plt.gca().spines[['top',,$2 
+,$2 
+##Analisis,$2 grafico
+El,$2 muestra
+registros.,$2 observan
+complejo,$2 ruidoso
+para,$2 análisis
+##Conclusion,$2 Degradación
+sensores,$2 P30).
+FD002,$2 por
+TRA,$2 cambios
+,$2 
+FD003,$2 fallas
+complejos.,$2 
+FD004,$2 variables,
+Escenario,$2 complejo.
+Comparación,$2 Controlado.
+Gráfico,$2 objetivo.
+Conclusión,$2 de
+Perspectivas,$2 por
+,$2 
+,$2 
